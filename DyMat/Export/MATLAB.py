@@ -34,7 +34,7 @@ def export(dm, varList, fileName=None, formatOptions={}):
     md = {}
     for block in vList:
         for n in vList[block]:
-            md[n] = dm.data(n)
+            md[n.replace('[','_').replace(']','_').replace('.','_').replace('','_').replace('(','_').replace(')','_').replace('{','_').replace('}','_')] = dm.data(n)
         absc = '%s_%02i' % (dm._absc[0], block)
         md[str(absc)] = dm.abscissa(block, True)
 
